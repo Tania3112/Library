@@ -52,7 +52,7 @@ public class OfflineLibrary implements General {
 
     public void sort() {
       Collections.sort(offlineBook);
-        System.out.println(offlineBook);
+        System.out.println("Библиотека отсортирована" + offlineBook);
 
 
     }
