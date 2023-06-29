@@ -3,26 +3,67 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         String number;
-        Library library = new Library();
-
-        library.add();
-        System.out.println("Введите действие которое вы хотите сделать: редактировать, просмотр, удалить");
         Scanner write = new Scanner(System.in);
 
+        OfflineLibrary offlineLibrary = new OfflineLibrary();
+        OnlineLibrary onlineLibrary = new OnlineLibrary();
+        System.out.println("Введите в какую библиотеку вы добавляете книги: онлайн, офлайн");
         number = write.next();
 
-
         switch (number) {
-            case "редактировать": library.edit();
-            break;
-            case "просмотр": library.watch();
-            break;
-            case "удалить": library.remove();
-            break;
+            case "онлайн": onlineLibrary.add();
+                break;
+            case "офлайн": offlineLibrary.add();
+                break;
+
+        }
+        if (number == "офлайн") {
+            System.out.println("Введите действие которое вы хотите сделать: редактировать, просмотр, удалить, сортировка");
+
+            number = write.next();
+
+
+            switch (number) {
+                case "редактировать":
+                    offlineLibrary.edit();
+                    break;
+                case "просмотр":
+                    offlineLibrary.watch();
+                    break;
+                case "удалить":
+                    offlineLibrary.remove();
+                    break;
+                case "сортировка":
+                    offlineLibrary.sort();
+
+
+            }
+        }
+        if (number == "онлайн"){
+            System.out.println("Введите действие которое вы хотите сделать: редактировать, просмотр, удалить, сортировка");
+
+            number = write.next();
+
+            switch (number) {
+                case "редактировать":
+                    onlineLibrary.edit();
+                    break;
+                case "просмотр":
+                    onlineLibrary.watch();
+                    break;
+                case "удалить":
+                    onlineLibrary.remove();
+                    break;
+                case "сортировка":
+                    onlineLibrary.sort();
+
+
+            }
 
         }
 
 
 
     }
+
 }

@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-public class Library {
+public class OfflineLibrary implements General {
     String name;
     int count;
     int i = 0;
     int book_number;
     String book_name;
-    ArrayList<String> book = new ArrayList<String>();
+    ArrayList<String> offlineBook = new ArrayList<>();
     Scanner display = new Scanner(System.in);
 
     public void add(){
@@ -18,10 +17,11 @@ public class Library {
             while (i != count) {
                 System.out.println("Введите название книги: ");
                 name = display.next();
-                book.add(name);
+                offlineBook.add(name);
+
                 i++;
             }
-            System.out.println("Ваша библиотека состоит из: " + book);
+            System.out.println("Ваша библиотека состоит из: " + offlineBook);
 
         }
 
@@ -33,20 +33,28 @@ public class Library {
         System.out.println( "Введите название новой книги: ");
         book_name = display.next();
 
-        book.set(book_number - 1,book_name);
-        System.out.println("Книги отредактированы: " + book);
+        offlineBook.set(book_number - 1,book_name);
+        System.out.println("Книги отредактированы: " + offlineBook);
     }
 
     public void remove() {
 
         System.out.println( "Введите номер книги для удаления:");
         book_number = display.nextInt();
-        book.remove(book_number -1);
-        System.out.println("Ваша библиотека состоит из:" + book);
+        offlineBook.remove(book_number -1);
+        System.out.println("Ваша библиотека состоит из:" + offlineBook);
 
     }
     public void watch () {
-        System.out.println("Библиотека:" + book);
+        System.out.println("Библиотека:" + offlineBook);
 
     }
+
+    public void sort() {
+      Collections.sort(offlineBook);
+        System.out.println(offlineBook);
+
+
+    }
+
 }
