@@ -2,21 +2,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-String number;
-AddBook add = new AddBook();
-WatchLibrary watch = new WatchLibrary();
-RemoveBook remove = new RemoveBook();
-EditBook edit = new EditBook();
+        String number;
+        Library library = new Library();
 
-System.out.println("Введите действие которое вы хотите сделать: добавить, редактировать, просмотр, удалить");
-Scanner write = new Scanner(System.in);
-      number =   write.next();
+        library.add();
+        System.out.println("Введите действие которое вы хотите сделать: редактировать, просмотр, удалить");
+        Scanner write = new Scanner(System.in);
+
+        number = write.next();
+
+
         switch (number) {
-            case "добавить":  add.add();
-            case "редактировать": edit.edit();
-            case "просмотр":
-            case "удалить": remove.remove();
+            case "редактировать": library.edit();
+            break;
+            case "просмотр": library.watch();
+            break;
+            case "удалить": library.remove();
+            break;
+
         }
+
 
 
     }
